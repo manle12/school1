@@ -18,7 +18,9 @@ function studentDetails() {
 						 
 					//	setTimeout(function() {
 							
-							window.location.href = url;
+						window.location.href = url;
+							
+							
 							
 					//	 }, 5000);
 						 

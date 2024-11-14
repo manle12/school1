@@ -71,6 +71,7 @@ public class ApplicationSecurityConfig {
             .authorizeHttpRequests((authz) -> authz
                 .requestMatchers("/login", "/register", "/public/**","/login", 
         				"/resources/**", 
+        				"/assets/**",
         				"/css/**", 
         				"/fonts/**", 
         				"/img/**").permitAll() // Allow these URLs without authentication

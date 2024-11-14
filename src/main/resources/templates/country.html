@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Components / Accordion - NiceAdmin Bootstrap Template</title>
+  <title>abc-school</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -165,10 +165,17 @@
 	<input type="text" id="studentName" name="class" th:value="${username}" style="display: none;">
 	<input type="text" id="myId" name="class" th:value="${authorities1}" style="display: none;">
 			  								
-											<button onclick="teacherDetails()">
-												    <i class="fa fa-refresh" alt="Button" width="100" height="50"></i>
+											<button onclick="teacherDetails()" style="transition: transform 0.3s ease;border-radius: 20px;background-color: green; "  onmouseover="this.style.transform='scale(1.5)';"  onmouseout="this.style.transform='scale(1)';">
+												    <i class="fa fa-refresh" alt="Button" width="5000" height="50">											
+														<h12 style="color: blue; font-size: 36px; text-align: center; font-family: Arial, sans-serif;">
+												  refresh
+												</h12>
+														
+													</i>
 												</button>
-											
+												<button onclick="classAndExamDiv()" style="transition: transform 0.3s ease;border-radius: 20px; background-color: green;"  onmouseover="this.style.transform='scale(1.5)';"  onmouseout="this.style.transform='scale(1)';">
+																								   <h12 style="color: blue;font-size: 26px;font-weight:bold;font-family: Arial, sans-serif;">STUDENT CLASS</h12>
+																								</button>
     <section class="section" >
       <div class="row" id="teacherDiv" style="display: none;">
         <div class="col-lg-6" style="width: 70%;">
@@ -191,20 +198,58 @@
 														</div>
               
 			
-			  
-			  <form id="classandexam" action="/countries" method="GET" >
+			  <div id="classexam" style="display: none;">
+			  <form id="classandexam"  method="GET" >
 			          <!-- First Dropdown: State -->
-			          <label for="state">Choose Class:</label>
+			          <label for="state" style="font-size: 18px;font-weight: bold;color: #333;font-family: Arial, sans-serif;">Choose Class:</label>
 			          <select name="classnumber" id="classnumber">
+						
+						<option value="11">ONE RED </option>
+						<option value="12">ONE BLUE</option>
+						<option value="13">ONE GREEN</option>
+						<option value="14">ONE YELLOW </option>
+						
+						<option value="21">TWO RED </option>
+						<option value="22">TWO BLUE </option>
+						<option value="23">TWO GREEN </option>
+						<option value="24">TWO YELLOW </option>
+						
+						<option value="31">THREE RED </option>
+						<option value="32">THREE BLUE </option>
+						<option value="33">THREE GREEN </option>
+						<option value="34">THREE YELLOW</option>
+						
+						<option value="41">FOUR RED </option>
+						<option value="42">FOUR BLUE </option>
+						<option value="43">FOUR GREEN</option>
+						<option value="44">FOUR YELLOW</option>
+						
+						<option value="51">FIVE RED </option>
+						<option value="52">FIVE BLUE </option>
+						<option value="53">FIVE GREEN </option>
+						<option value="54">FIVE YELLOW </option>
+
+						
+						<option value="61">SIX RED </option>
+						<option value="62">SIX BLUE</option>
+						<option value="63">SIX GREEN </option>
+						<option value="64">SIX YELLOW</option>
+
 			              <option value="71">SEVEN RED </option>
 			              <option value="72">SEVEN BLUE</option>
 			              <option value="73">SEVEN GREEN</option>
 			              <option value="74">SEVEN YELLOW</option>
+						  
+						  
+						  <option value="81">EIGHT RED </option>
+						  <option value="82">EIGHT BLUE</option>
+						  <option value="83">EIGHT GREEN</option>
+						  <option value="84">EIGHT YELLOW</option>
 			          </select>
 			          <br><br>
 
 			          <!-- Second Dropdown: Capital -->
-			          <label for="capital">Choose Exam:</label>
+			          <label for="capital" style="font-size: 18px;font-weight: bold;color: #333;font-family: Arial, sans-serif;">Choose Exam:</label>
 			          <select name="examtype" id="examtype">
 			              <option value="jesma">JESMA</option>
 			              <option value="targeter">TARGETER</option>
@@ -213,9 +258,9 @@
 			          <br><br>
 
 			          <!-- Submit Button -->
-			          <input type="submit" value="SELECT" >
+			          <input type="submit" value="SELECT" style="border-radius: 20px;font-size: 18px;font-weight: bold;color: #333;font-family: Arial, sans-serif;">
 			      </form>
-				  
+				  </div>
 				  
 				   <table  class="table table-striped table-advance table-hover"  >
 				  				                 <tbody>
@@ -249,6 +294,7 @@
 				  <td>
 				  										     
 				  	<a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" th:href="@{/countries/findById/{id}(id=${country.id})}">Review</a>
+					<a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myNewModal" th:href="@{/countries/findById/{id}(id=${country.id})}">Review</a>
 				  										                        
 				  										                   
 				  </td>
@@ -274,7 +320,7 @@
 			      <div class="modal-body">
 			      <!---  This is the content of the modal.----->
 				  <h2 class="modal-title" >Student Exam</h2>
-					 <form th:action="@{/countries/update}" method="put"  id="editModal"> 
+					 <form th:action="@{/countries/update}" method="put"  id="editModal1"> 
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
 					      <div class="modal-header">
@@ -300,19 +346,19 @@
 							  
 							  <div class="form-group">
 							  	<label for="codeEdit" class="col-form-label">Mathematics Review:</label>
-							  		<input type="text" class="form-control" id="mathReviewEdit" name="reviewmaths" >
+							  		<input type="text" class="form-control" id="mathReviewEdit" name="reviewmaths"  >
 							   </div>
 							   
 							   
 							   
 							   <div class="form-group">
 							    <label for="codeEdit" class="col-form-label">English:</label>
-							    <input type="text" class="form-control" id="englishEdit" name="english" readonly>
+							    <input type="text" class="form-control" id="englishEdit" name="english" readonly  >
 							    </div> 
 							   							  
 							    <div class="form-group">
 							   <label for="codeEdit" class="col-form-label">English Review:</label>
-							   <input type="text" class="form-control" id="englishReviewEdit" name="reviewenglish" >
+							   <input type="text" class="form-control" id="englishReviewEdit" name="reviewenglish"   >
 							    </div> 
 								
 								
@@ -324,7 +370,7 @@
 															  
 								 <div class="form-group">
 								<label for="codeEdit" class="col-form-label">Kiswahili Review:</label>
-								<input type="text" class="form-control" id="kiswahiliReviewEdit" name="reviewkiswahili" >
+								<input type="text" class="form-control" id="kiswahiliReviewEdit" name="reviewkiswahili"  >
 								 </div> 
 
 
@@ -336,7 +382,7 @@
 															  
 								 <div class="form-group">
 								<label for="codeEdit" class="col-form-label">Science Review:</label>
-								<input type="text" class="form-control" id="scienceReviewEdit" name="reviewscience" >
+								<input type="text" class="form-control" id="scienceReviewEdit" name="reviewscience"   >
 								 </div> 
 
 
@@ -393,9 +439,13 @@
 									 <input type="text" class="form-control" id="examtypeEdit" name="examtype">
 								 </div>  
 								 <div class="form-group" style="display: none;">
-								 						 <label for="codeEdit" class="col-form-label">Code:</label>
-								 						<input type="text" class="form-control" id="classnumberEdit" name="classnumber">
+								 <label for="codeEdit" class="col-form-label">Code:</label>
+								 <input type="text" class="form-control" id="classnumberEdit" name="classnumber">
 								 							 </div>  
+															 <div class="form-group" style="display: none;">
+															 											 <label for="codeEdit" class="col-form-label">Username:</label>
+															 											  <input type="text" class="form-control" id="usernameEdit" name="username">
+															 											 </div>
 							  
 							
 					      
@@ -417,7 +467,171 @@
 			  </div>
 			</div>
 
-			<!-- ======= modal finish ======= --> 
+			<!-- ======= modal finish ======= -->
+
+			
+			
+			
+			<!-- ======= modal start ======= -->
+						<div class="modal fade" id="myNewModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						      
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <div class="modal-body">
+						      <!---  This is the content of the modal.----->
+							  <h2 class="modal-title" >Student Exam</h2>
+								 <form th:action="@{/countries/update}" method="put"  id="editNewModal"> 
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="editModalLabel">Review Student Exam</h5>
+								        
+								      </div>
+								      <div class="modal-body" >
+
+								          <div class="form-group">
+								            <label for="idEdit" class="col-form-label">Id:</label>
+								            <input type="text" class="form-control" id="idMyEdit" name="id" readonly>
+								          </div>
+
+								          <div class="form-group"  style="display: none;">
+								            <label for="descriptionEdit" class="col-form-label">Description:</label>
+								            <input type="text" class="form-control" id="descriptionMyEdit" name="description" >
+								          </div>
+								          
+								          <div class="form-group">
+								            <label for="codeEdit" class="col-form-label">Mathematics:</label>
+								            <input type="text" class="form-control" id="mathMyEdit" name="maths" >
+								          </div> 
+										  
+										  <div class="form-group">
+										  	<label for="codeEdit" class="col-form-label">Mathematics Review:</label>
+										  		<input type="text" class="form-control" id="mathMyReviewEdit" name="reviewmaths"    >
+										   </div>
+										   
+										   
+										   
+										   <div class="form-group">
+										    <label for="codeEdit" class="col-form-label">English:</label>
+										    <input type="text" class="form-control" id="englishMyEdit" name="english" >
+										    </div> 
+										   							  
+										    <div class="form-group">
+										   <label for="codeEdit" class="col-form-label">English Review:</label>
+										   <input type="text" class="form-control" id="englishMyReviewEdit" name="reviewenglish" >
+										    </div> 
+											
+											
+
+											<div class="form-group">
+											 <label for="codeEdit" class="col-form-label">Kiswahili:</label>
+											 <input type="text" class="form-control" id="kiswahiliMyEdit" name="kiswahili" >
+											 </div> 
+																		  
+											 <div class="form-group">
+											<label for="codeEdit" class="col-form-label">Kiswahili Review:</label>
+											<input type="text" class="form-control" id="kiswahiliMyReviewEdit" name="reviewkiswahili" >
+											 </div> 
+
+
+
+											<div class="form-group">
+											 <label for="codeEdit" class="col-form-label">Science:</label>
+											 <input type="text" class="form-control" id="scienceMyEdit" name="science">
+											 </div> 
+																		  
+											 <div class="form-group">
+											<label for="codeEdit" class="col-form-label">Science Review:</label>
+											<input type="text" class="form-control" id="scienceMyReviewEdit" name="reviewscience" >
+											 </div> 
+
+
+
+											<div class="form-group">
+											 <label for="codeEdit" class="col-form-label">Social:</label>
+											 <input type="text" class="form-control" id="socialMyEdit" name="social">
+											 </div> 
+																		  
+											 <div class="form-group">
+											<label for="codeEdit" class="col-form-label">Social Review:</label>
+											<input type="text" class="form-control" id="socialMyReviewEdit" name="reviewsocial" >
+											 </div> 
+
+
+
+
+											<div class="form-group">
+											 <label for="codeEdit" class="col-form-label">C.R.E:</label>
+											 <input type="text" class="form-control" id="creMyEdit" name="cre">
+											 </div> 
+																		  
+											 <div class="form-group">
+											<label for="codeEdit" class="col-form-label">C.R.E Review:</label>
+											<input type="text" class="form-control" id="creMyReviewEdit" name="reviewcre" >
+											 </div> 
+											 
+											 <div class="form-group">
+											  <label for="codeEdit" class="col-form-label">Total:</label>
+											  <input type="text" class="form-control" id="totalMyEdit" name="total" >
+											  </div> 
+											 							  
+											  <div class="form-group">
+											 <label for="codeEdit" class="col-form-label">Total Review:</label>
+											 <input type="text" class="form-control" id="totalMyReviewEdit" name="reviewtotal" >
+											  </div> 
+										   
+										    
+										   
+										   
+										   <div class="form-group"  style="display: none;">
+										   			<label for="codeEdit" class="col-form-label">Code:</label>
+										   			<input type="text" class="form-control" id="codeMyEdit" name="code">
+										   	 </div> 				   			   
+										  
+										   
+										  <div class="form-group" style="display: none;">
+										  				            <label for="codeEdit" class="col-form-label">Code:</label>
+										  				            <input type="text" class="form-control" id="nameMyEdit" name="fullname">
+										  				          </div>  
+											
+											 <div class="form-group" >
+												 <label for="codeEdit" class="col-form-label">Examtype:</label>
+												 <input type="text" class="form-control" id="examtypeMyEdit" name="examtype">
+											 </div>  
+											 
+											 
+											 <div class="form-group" >
+											 						 <label for="codeEdit" class="col-form-label">Classnumber:</label>
+											 						<input type="text" class="form-control" id="classnumberMyEdit" name="classnumber">
+											 							 </div>  
+																		  <div class="form-group" style="display: none;">
+																		 <label for="codeEdit" class="col-form-label">Code:</label>
+																		  <input type="text" class="form-control" id="usernameMyEdit" name="username">
+																		 </div>
+										
+								      
+								      </div>
+								      <div class="modal-footer">
+								       
+								        <button type="submit" class="btn btn-primary">Save</button>
+								      </div>
+								    </div>
+								  </div>
+								</form>
+								
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						       
+						      </div>
+						    </div>
+						  </div>
+						</div>
+
+						<!-- ======= modal finish ======= --> 
 		
 			
 				
@@ -476,6 +690,7 @@
   <script src="/assets/js/country4.js"></script>
   <script src="/assets/js/country5.js"></script>
   <script src="/assets/js/country6.js"></script>
+  <script src="/assets/js/country7.js"></script>
   
 
 </body>

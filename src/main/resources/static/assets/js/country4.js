@@ -8,9 +8,18 @@ document.getElementById('classandexam').addEventListener('submit', function(even
 		var examType = document.getElementById('examtype').value;
 			   
 		var url = `/countries/${classNumber}/${examType}`;
-		window.location.href = url;
+		//window.location.href = url;
 		
+		//document.getElementById('classandexam').action = url;
+
+		       // Now submit the form with the updated action
+			   
+			   this.action = url;
+		      this.submit();
+			 
 
 		    
        
     });
+	
+	
